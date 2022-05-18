@@ -1,8 +1,6 @@
 # csv-duplicate-finder
 A Python script to find duplicates across multiple csv files and compile results into an output csv files
 
-<br>
-
 ## Usage
 <ol>
   <li> Move <code>duplicate-finder.py</code> into a new folder somwhere of your choosing.</li>
