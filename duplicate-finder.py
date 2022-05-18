@@ -41,8 +41,8 @@ def create_multiple_devices_file(duplicates_list):
     output_directory = "output"
     filename = f'{datetime.datetime.now().strftime("%b-%d-%Y_%I-%M-%S-%p")}'
     # Check for directory
-    if not os.path.isdir(directory):
-        os.mkdir(directory)
+    if not os.path.isdir(output_directory):
+        os.mkdir(output_directory)
     # Make file
     path = f'{output_directory}/{filename}.csv'
     with open(path, mode='w') as newFile:
@@ -59,20 +59,20 @@ def create_multiple_devices_file(duplicates_list):
                 [f'{dupe}', f'{len(devices)}', f'{devices}'])
 
 
-def main(output_directory, input_files):
+def main(input_directory, input_files):
     # Check directory exists
-    if not os.path.exists(output_directory):
+    if not os.path.exists(input_directory):
         print("That directory does not exist...")
         return
     # Check all files exist
     for file in input_files:
-        filepath = f'{output_directory}/{file}'
+        filepath = f'{input_directory}/{file}'
         if not os.path.exists(filepath):
             print(f'{filepath} does not exist...')
             return
     # Read CSV files
     for file in input_files:
-        filepath = f'{output_directory}/{file}'
+        filepath = f'{input_directory}/{file}'
         read_csv_file(filepath)
 
     print(f'\nThere are a total of {len(students_with_devices)} entries...')
